@@ -29,23 +29,28 @@
      确定要保留自动更新的话，请将Updates中`UnSupport updates`选项一定去掉，然后保留N卡的驱动程序，预
      备每次自动更新后自行重装一遍驱动，否则很可能自动更新完，出现循环登录的情况。
    * 进入系统后执行如下命令
-```$ cp -rf /media/`whoami`/Ubuntu\ 14.0/Drivers\&Libs/* $HOME/Downloads
-   $ sudo apt-get update 
-   $ sudo apt-get upgrade
-   $ sudo sed -i "s/quiet splash/quiet splash nomodeset/" /etc/default/grub
-   $ sudo update-grub2
-   $ sudo apt-get install nvidia-375
-   $ sudo reboot
+```
+   cp -rf /media/`whoami`/Ubuntu\ 14.0/Drivers\&Libs/* $HOME/Downloads
+   sudo apt-get update 
+   sudo apt-get upgrade
+   sudo sed -i "s/quiet splash/quiet splash nomodeset/" /etc/default/grub
+   sudo update-grub2
+   sudo apt-get install nvidia-375
+   sudo reboot
 ```
 5. 再次进入系统，安装Cuda
    * 验证能否正常登录
    * 使用nvidia-smi 查看N卡驱动是否正常安装
    * 如果一切正常，我们开始安装Cuda 
    * 打开命令行后执行如下程序
-```$cd $HOME/Downloads
-   $sudo bash cuda_8.0.61_375.26_linux.run #注意在中间选择不要安装N卡驱动，此外, 按照提示默认安装ok。
+```
+   cd $HOME/Downloads
+   sudo bash cuda_8.0.61_375.26_linux.run #注意在中间选择不要安装N卡驱动，此外, 按照提示默认安装ok。
 ```
    * 安装完成后， 在$HOME目录中会有一个NVIDIA_CUDA-8.0_Samples的目录，进入后make可以编译出实例程序，
      用来验证安装是否成功。
+
+
+
 
 
