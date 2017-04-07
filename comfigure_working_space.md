@@ -7,11 +7,11 @@
 1. 关闭Secure UEFI
    * 开机按F2键进入BIOS -> Boot选项 -> Secure UEFI(Disabled)
    * 保存修改 -> 退出重启
-2. 清理掉Win10分区，否则Ubuntu无法看到已有的硬盘分区,无法正常安装
+2. Fix GPT分区表问题，否则安装程序会看不到原有磁盘分区表，造成无法安装
    * 插入Ubuntu 14引导盘 ->F12键进入启动选项->U盘启动
-   * Try Ubuntu      -> 进入引导系统 -> 打开命令行(Ctrl+Alt+T)
-   * $fdisk /dev/sda -> 连续敲d（一共2次），直到删除/dev/sda所有已有的分区表
-   * $fdisk /dev/sdb -> 连续敲d（一共6次），直到删除/dev/sdb所有已有的分区表
+   * 选中Try Ubuntu -> 按e键进入编辑菜单，在quiet splash的后边加上" monodeset"->按F10引导启动。
+     如果不进行这步操作，引导程序会卡住，黑屏。 
+   * 进入系统中，按下菜单键，选择GPartion程序。进入后会提示"Fix GPT分区存在问题的窗口"。-> 选择Fix
    * 重新启动
 3. 开始安装Ubuntu
    * 插入Ubuntu 14引导盘 ->F12键进入启动选项->U盘启动
@@ -43,3 +43,4 @@
 ```
    * 安装完成后， 在$HOME目录中会有一个NVIDIA_CUDA-8.0_Samples的目录，进入后make可以编译出实例程序，
      用来验证安装是否成功。
+
