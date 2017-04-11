@@ -69,6 +69,7 @@
     * 安装Vim环境配置（Vundle, YouCompleteMe)  
     如果你直接想用Vim的环境，可以把Downloads目录下的vim_plugins.tar.gz 解压到主目录就好。已经安装了
     命令补全插件，如果你想用更多的插件可以用Vundle进行配置。
+    更多内容可以参照[简书](http://www.jianshu.com/p/24aefcd4ca93)
     ```
     cp ~/Downloads/vim_plugins.tar.gz ~
     cd
@@ -78,18 +79,15 @@
     ```
 
 2. Sougou拼音  
-   安装包在Downloads目录中(你也可以去官网上下载)，双击可以安装，或者使用
+   安装包在Downloads目录中(你也可以去[搜狗官网](http://pinyin.sogou.com/linux/help.php)上下载)，双击
+   可以安装，或者使用
    ```
    dpkg -i sogoupinyin_2.1.0.0082_amd64.deb
    ```
+   安装完成后，在系统设置->输入法->把SogouPinyin，加上重新登录就可以使用了，说明详见[搜狗官网](http://pinyin.sogou.com/linux/help.php)。 
 
 3. Firefox Adobe Flash插件
    安装包也在Downloads目录下，解压后按照里边的ReadME安装一下就好。我们的firefox插件位置在/usr/lib/mozilla/plugins/
-
-
-
-
-
 
 
 
