@@ -56,6 +56,8 @@
 1. Vim及环境配置 
     * 安装Vim8.0  
     ```
+    sudo apt-get remove vim 
+    sudo apt-get install libncurses-dev
     cd Downloads
     tar xzvf vim.tar.gz
     ./configure --with-features=huge --enable-multibyte --enable-rubyinterp=yes \
@@ -76,4 +78,7 @@
 
 3. Firefox Adobe Flash插件
    安装包也在Downloads目录下，解压后按照里边的ReadME安装一下就好。我们的firefox插件位置在/usr/lib/mozilla/plugins/
+
+
+
 
