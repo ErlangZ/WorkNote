@@ -53,30 +53,68 @@
 
 
 ## 安装软件
+
 1. Vim及环境配置 
     * 安装Vim8.0  
     ```
-    sudo apt-get remove vim 
-    sudo apt-get install libncurses-dev
-    cd ~/Downloads
-    tar xzvf vim.tar.gz
-    ./configure --with-features=huge --enable-multibyte --enable-rubyinterp=yes \
-                --enable-pythoninterp=yes --with-python-config-dir=/usr/lib/python2.7/config \
-                --enable-perlinterp=yes --enable-luainterp=yes --enable-gui=gtk2 --enable-cscope
-    make -j3
-    sudo make install
+sudo apt-get remove vim 
+sudo apt-get install libncurses-dev
+cd ~/Downloads
+tar xzvf vim.tar.gz
+./configure --with-features=huge --enable-multibyte --enable-rubyinterp=yes \
+            --enable-pythoninterp=yes --with-python-config-dir=/usr/lib/python2.7/config \
+            --enable-perlinterp=yes --enable-luainterp=yes --enable-gui=gtk2 --enable-cscope
+make -j3
+sudo make install
     ```
     * 安装Vim环境配置（Vundle, YouCompleteMe)  
     如果你直接想用Vim的环境，可以把Downloads目录下的vim_plugins.tar.gz 解压到主目录就好。已经安装了
     命令补全插件，如果你想用更多的插件可以用Vundle进行配置。
     更多内容可以参照[简书](http://www.jianshu.com/p/24aefcd4ca93)
     ```
-    cp ~/Downloads/vim_plugins.tar.gz ~
-    cd
-    tar xzvf vim_plugins.tar.gz && rm vim_plugins.tar.gz
-    cd ~/.vim/bundle/YouCompleteMe   
-    bash ./install.sh --clang-completer  
+cp ~/Downloads/vim_plugins.tar.gz ~
+cd
+tar xzvf vim_plugins.tar.gz && rm vim_plugins.tar.gz
+cd ~/.vim/bundle/YouCompleteMe   
+bash ./install.sh --clang-completer  
     ```
+    然后~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py +144行
+    将flag变量改成
+    ```
+# These are the compilation flags that will be used in case there's no                              
+# compilation database set (by default, one is not set).                                            
+# CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.                      
+flags = [                                                                                           
+'-Wall',                                                                                            
+'-Wextra',                                                                                          
+'-Werror',                                                                                          
+'-fexceptions',                                                                                     
+'-DNDEBUG',                                                                                         
+# THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which                      
+# language to use when compiling headers. So it will guess. Badly. So C++                           
+# headers will be compiled as C headers. You don't want that so ALWAYS specify                      
+# a "-std=<something>".                                                                             
+# For a C project, you would set this to something like 'c99' instead of                            
+# 'c++11'.                                                                                          
+'-std=c++14', #gcc 4.8.4 you need to use -std=c++1y in later versions 5.2 you can use -std=c++14    
+# ...and the same thing goes for the magic -x option which specifies the                            
+# language that the files to be compiled are written in. This is mostly                             
+# relevant for c++ headers.                                                                         
+# For a C project, you would set this to 'c' instead of 'c++'.                                      
+'-x',                                                                                               
+'c++',                                                                                              
+'-I', '$PONYAI_DIR/',               
+'-I', '$PONYAI_DIR/build',               
+'-isystem', '/usr/include/',                                                                        
+'-isystem', '/usr/local/include/',                                                                  
+'-isystem', '/usr/include/c++/4.8/',                                                                
+'-isystem', '/usr/lib/gcc/x86_64-linux-gnu/4.8/include',                                            
+'-isystem', '/usr/include/x86_64-linux-gnu/c++/4.8/',                                               
+'-isystem', '/usr/local/include/google',                                                            
+'-isystem', '/usr/local/include/gperftools',                                                        
+] 
+```
+
 
 2. Sougou拼音  
    安装包在Downloads目录中(你也可以去[搜狗官网](http://pinyin.sogou.com/linux/help.php)上下载)，双击
@@ -88,7 +126,6 @@
 
 3. Firefox Adobe Flash插件
    安装包也在Downloads目录下，解压后按照里边的ReadME安装一下就好。我们的firefox插件位置在/usr/lib/mozilla/plugins/
-
 
 
 
