@@ -52,6 +52,28 @@
 
 
 
+## 安装软件
+1. Vim及环境配置 
+    * 安装Vim8.0  
+    ```
+    cd Downloads
+    tar xzvf vim.tar.gz
+    ./configure --with-features=huge --enable-multibyte --enable-rubyinterp=yes \
+                --enable-pythoninterp=yes --with-python-config-dir=/usr/lib/python2.7/config \
+                --enable-perlinterp=yes --enable-luainterp=yes --enable-gui=gtk2 --enable-cscope
+    make -j3
+    sudo make install
+    ```
+    * 安装Vim环境配置（Vundle, YouCompleteMe)  
+    如果你直接想用Vim的环境，可以把Downloads目录下的vim_plugins.tar.gz 解压到主目录就好。已经安装了
+    命令补全插件，如果你想用更多的插件可以用Vundle进行配置。
 
+2. Sougou拼音  
+   安装包在Downloads目录中(你也可以去官网上下载)，双击可以安装，或者使用
+   ```
+   dpkg -i sogoupinyin_2.1.0.0082_amd64.deb
+   ```
 
+3. Firefox Adobe Flash插件
+   安装包也在Downloads目录下，解压后按照里边的ReadME安装一下就好。我们的firefox插件位置在/usr/lib/mozilla/plugins/
 
