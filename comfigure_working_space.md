@@ -81,26 +81,13 @@ bash ./install.sh --clang-completer
     然后~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py +144行
     将flag变量改成
     ```
-# These are the compilation flags that will be used in case there's no                              
-# compilation database set (by default, one is not set).                                            
-# CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.                      
 flags = [                                                                                           
 '-Wall',                                                                                            
 '-Wextra',                                                                                          
 '-Werror',                                                                                          
 '-fexceptions',                                                                                     
 '-DNDEBUG',                                                                                         
-# THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which                      
-# language to use when compiling headers. So it will guess. Badly. So C++                           
-# headers will be compiled as C headers. You don't want that so ALWAYS specify                      
-# a "-std=<something>".                                                                             
-# For a C project, you would set this to something like 'c99' instead of                            
-# 'c++11'.                                                                                          
-'-std=c++14', #gcc 4.8.4 you need to use -std=c++1y in later versions 5.2 you can use -std=c++14    
-# ...and the same thing goes for the magic -x option which specifies the                            
-# language that the files to be compiled are written in. This is mostly                             
-# relevant for c++ headers.                                                                         
-# For a C project, you would set this to 'c' instead of 'c++'.                                      
+'-std=c++14',    
 '-x',                                                                                               
 'c++',                                                                                              
 '-I', '$PONYAI_DIR/',               
@@ -115,7 +102,6 @@ flags = [
 ] 
 ```
 
-
 2. Sougou拼音  
    安装包在Downloads目录中(你也可以去[搜狗官网](http://pinyin.sogou.com/linux/help.php)上下载)，双击
    可以安装，或者使用
@@ -126,6 +112,7 @@ flags = [
 
 3. Firefox Adobe Flash插件
    安装包也在Downloads目录下，解压后按照里边的ReadME安装一下就好。我们的firefox插件位置在/usr/lib/mozilla/plugins/
+
 
 
 
